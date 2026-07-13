@@ -1,11 +1,17 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from models import Base
+from sqlalchemy.ext.declarative import declarative_base
 
+SQLALCHEMY_DATABASE_URL = "sqlite:///./resumes.db"
 
-DATABASE_URL = "sqlite:///resume.db"
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
+)
 
-engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-SessionLocal = sessionmaker(bind=engine)
-Base.metadata.create_all(bind=engine)
+Base = declarative_base()
+
+# This will create tables when the app starts
+def init_db():
+    Base.metadata.create_all(bind=engine)
