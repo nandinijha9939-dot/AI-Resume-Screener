@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "/api",  // Uses Vite proxy
-  timeout: 30000,
+  baseURL: "https://ai-resume-screener-backend-u59v.onrender.com",
 });
 
 export default api;
