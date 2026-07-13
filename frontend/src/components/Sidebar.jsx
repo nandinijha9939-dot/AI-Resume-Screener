@@ -7,16 +7,16 @@ function Sidebar() {
     <div style={{
       width: "250px",
       height: "100vh",
-      background: "rgba(15, 23, 42, 0.95)",  // ← Darker background
+      background: "rgba(15, 23, 42, 0.95)",
       backdropFilter: "blur(20px)",
       borderRight: "1px solid rgba(255, 255, 255, 0.08)",
       padding: "20px",
       position: "fixed",
       left: 0,
       top: 0,
-      zIndex: 9999,  // ← Higher z-index
+      zIndex: 9999,
       overflowY: "auto",
-      boxShadow: "4px 0 20px rgba(0, 0, 0, 0.3)",  // ← Add shadow
+      boxShadow: "4px 0 20px rgba(0, 0, 0, 0.3)",
     }}>
       <div style={{ marginBottom: "30px", padding: "10px" }}>
         <h2 style={{ color: "#6c63ff", fontSize: "1.3rem" }}>🤖 AI Screener</h2>
@@ -34,6 +34,21 @@ function Sidebar() {
           transition: "all 0.3s ease",
         }}>
           📊 Dashboard
+        </Link>
+
+        {/* ← ADD THIS */}
+        <Link to="/upload-job" style={{
+          display: "block",
+          padding: "12px 16px",
+          marginBottom: "8px",
+          borderRadius: "12px",
+          color: location.pathname === "/upload-job" ? "#ffffff" : "#8a90a8",
+          background: location.pathname === "/upload-job" ? "rgba(108, 99, 255, 0.2)" : "transparent",
+          textDecoration: "none",
+          transition: "all 0.3s ease",
+          cursor: "pointer",
+        }}>
+          📋 Upload Job
         </Link>
 
         <Link to="/upload" style={{

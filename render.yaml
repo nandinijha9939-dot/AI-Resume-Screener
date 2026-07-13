@@ -3,8 +3,7 @@ services:
   - type: web
     name: ai-resume-screener-backend
     runtime: python
-    repo: https://github.com/your-username/your-repo  # UPDATE THIS
-    plan: starter  # Use starter for more memory (1GB) or free for testing
+    plan: starter
     region: oregon
     rootDir: backend
     buildCommand: pip install -r requirements.txt
@@ -12,14 +11,11 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
-      - key: PYTHONUNBUFFERED
-        value: 1
 
   # ===== FRONTEND SERVICE =====
   - type: web
     name: ai-resume-screener-frontend
     runtime: node
-    repo: https://github.com/your-username/your-repo  # UPDATE THIS
     plan: free
     region: oregon
     rootDir: frontend
@@ -27,4 +23,4 @@ services:
     startCommand: npm run preview -- --port $PORT
     envVars:
       - key: VITE_API_URL
-        value: https://ai-resume-screener-backend.onrender.com  # UPDATE THIS
+        value: https://ai-resume-screener-backend.onrender.com
